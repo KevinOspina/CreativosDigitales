@@ -1,3 +1,7 @@
+//const router = express.Router();
+const express = require('express');
+
+
 const { Client } = require('pg')
 const client = new Client({
     user: "postgres",
@@ -24,7 +28,7 @@ exports.list = function (req, res) {
 
 //Añadir una tarea
 exports.add = function (req, res) {
-    res.render('tareas/add', { title: "Añadir Tareas"  });
+    res.render('tareas/add', { title: "Añadir Tareas" });
 };
 
 //Editar una tarea
@@ -45,7 +49,7 @@ exports.edit = function (req, res) {
 //Añadir una tarea
 exports.save = function (req, res) {
 
-    var cols = [req.body.id,req.body.descripcion, req.body.fecha, req.body.prioridad];
+    var cols = [req.body.id, req.body.descripcion, req.body.fecha, req.body.prioridad];
 
     client.query('INSERT INTO tareas(id,descripcion, fecha,prioridad) VALUES($1, $2, $3, $4) RETURNING *', cols, function (err, result) {
         if (err) {
@@ -59,7 +63,7 @@ exports.save = function (req, res) {
 //Actualizar una tarea
 exports.update = function (req, res) {
 
-    var cols =[req.body.id,req.body.descripcion, req.body.fecha, req.body.prioridad];
+    var cols = [req.body.id, req.body.descripcion, req.body.fecha, req.body.prioridad];
 
     client.query('UPDATE tareas SET descripcion=$1, fecha=$2,prioridad=$3, WHERE id=$4', cols, function (err, result) {
         if (err) {

@@ -2,7 +2,7 @@
   "name": "pruebacreaivos3",
   "version": "1.0.0",
   "description": "Administrador de tareas, Creativos digitales",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon src/app.js",
     "webpack": "webpack --mode development --watch"
@@ -16,7 +16,8 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "path": "^0.12.7",
-    "pg": "^7.12.1"
+    "pg": "^7.12.1",
+    "vue-template-compiler": "^2.6.10"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
